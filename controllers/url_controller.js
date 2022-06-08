@@ -1,11 +1,10 @@
 const {CreateURL,GetOriginalURL} = require('../models/url_model');
-const {DB_HOST_1,DB_HOST_2} = process.env;
+const {DB_HOST_1,DB_HOST_2,DB_Num} = process.env;
 
 const CreateUrl = async (req,res)=>{
     const url = req.body.original_url;
     const id =  await CreateURL(url);
-    let RDSip = '1.cub7m7zd2cmg,'+id.toString();
-    // RDSip = new Buffer.from(RDSip, 'ascii')
+    let RDSip = DB_Num + '.cub7m7zd2cmg,' + id.toString();
     RDSip = new Buffer.from(RDSip,"utf-8");
     RDSip = RDSip.toString('base64');
     res.send({id:id,url:RDSip});
