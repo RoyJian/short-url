@@ -17,7 +17,7 @@ const DecodeUrl = async(req,res)=>{
     const decode = new Buffer.from(hash,'base64').toString('utf-8');
     const host = DB_HOST_1 + decode.split(',')[0] + DB_HOST_2;
     const index = decode.split(',')[1];
-    const originUrl = await GetOriginalURL('127.0.0.1',index);
+    const originUrl = await GetOriginalURL(host,index);
     res.send({originUrl,host});
 };
 
