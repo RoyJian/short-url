@@ -7,7 +7,7 @@ const CreateURL = async(original_url)=>{
         id : null,
         original_url:original_url
     }
-    const sqlres = await db.execute({sql:sql,values:values});
+    const sqlres = await db.query({sql:sql,values:values});
     console.log(sqlres[0]['insertId']);
     return (sqlres[0]['insertId']);
 }
