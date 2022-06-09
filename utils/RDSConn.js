@@ -1,8 +1,8 @@
 require("dotenv").config();
-const mysql = require("mysql2");
+const mysql = require("mysql2/promise");
 
 const pool = async (host) => {
-  const conn  =mysql.createConnection({
+  const conn  = await mysql.createConnection({
     connectionLimit: 10,
     host: host,
     user: process.env.DB_USER,
