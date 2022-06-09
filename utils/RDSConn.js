@@ -12,4 +12,4 @@ const pool = (host) => {
   return conn;
 };
 
-module.exports = conn;
+module.exports = pool;
