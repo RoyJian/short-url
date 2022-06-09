@@ -14,7 +14,7 @@ const CreateURL = async(original_url)=>{
 const GetOriginalURL = async(host,index)=>{
     const sql = 'SELECT original_url FROM shorturl where id = ?;'
     const RDSdb = await otherDB(host);
-    const [[res]] = await RDSdb.execute(sql,[index]);
+    const res = await RDSdb.execute(sql,[index]);
     console.log(res.original_url);
     RDSdb.end();
     return res.original_url;
