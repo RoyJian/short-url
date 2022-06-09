@@ -1,7 +1,7 @@
 require("dotenv").config();
 const mysql = require("mysql2");
 
-const pool = async (host) => {
+const pool = (host) => {
   const pool  =mysql.createPool({
     connectionLimit: 10,
     host: host,
