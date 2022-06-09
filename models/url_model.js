@@ -16,7 +16,9 @@ const GetOriginalURL = async(host,index)=>{
     const RDSdb = await otherDB(host);
     const [[res]] = await RDSdb.execute(sql,[index]);
     console.log(res.original_url);
+    RDSdb.end();
     return res.original_url;
+
 
 };
 module.exports = {
