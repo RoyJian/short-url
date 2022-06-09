@@ -15,7 +15,7 @@ const CreateUrl = async (req,res)=>{
 const DecodeUrl = async(req,res)=>{
     const hash = req.query.id
     const decode = new Buffer.from(hash,'base64').toString('utf-8');
-    const replicaSelect = getRandomInt(1) + 1;
+    const replicaSelect = getRandomInt(2) + 1;
     const addressArr = decode.split(',');
     const host = `${DB_HOST_p1}${addressArr[0]}-${replicaSelect}${DB_HOST_p2}${DB_HOST_p3}`;
     const index = addressArr[1];
